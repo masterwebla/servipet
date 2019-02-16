@@ -17,8 +17,8 @@
 					<tr>
 						<td>{{$tipo->nombre}}</td>
 						<td>{{$tipo->created_at}}</td>
-						<td>Editar</td>
-						<td>Borrar</td>
+						<td><i class="fa fa-edit"></i></td>
+						<td><i class="fa fa-trash"></i></td>
 					</tr>
 				@endforeach
 			</tbody>
