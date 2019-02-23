@@ -47,18 +47,27 @@ class TiposproductosController extends Controller
     //Función para mostrar el formulario para editar un producto
     public function edit($id)
     {
-        //
+        //Consultar la información del tipo de producto con el ID recibido
+        $tipoproducto = Tipoproducto::find($id);
+        return view('admin.tiposproductos.editar',compact('tipoproducto'));
     }
 
     //Función para actualizar el tipo de producto en la tabla
     public function update(Request $request, $id)
     {
-        //
+        $tipoproducto = Tipoproducto::find($id);
+        $tipoproducto->nombre = $request->nombre;
+        $tipoproducto->save();
+
+        return redirect()->route('tiposproductos.index');
     }
 
     //Función para borrar un tipo de producto
     public function destroy($id)
     {
-        //
+        $tipoproducto = Tipoproducto::find($id);
+        $tipoproducto->delete();
+
+        return redirect()->route('tiposproductos.index');
     }
 }
