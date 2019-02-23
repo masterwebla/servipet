@@ -19,13 +19,23 @@ class TiposproductosController extends Controller
     //Función del CRUD para mostrar el formulario para registrar un nuevo tipo de producto
     public function create()
     {
-        //
+        return view('admin.tiposproductos.crear');
     }
 
     //función para guardar en la tabla tipos de productos
     public function store(Request $request)
     {
-        //
+        //Validar
+        $request->validate([
+            'nombre'=> 'required|max:12|unique:tipos_productos'
+        ]);
+
+        //Guardar
+        Tipoproducto::create([
+            'nombre'=>$request->nombre
+        ]);
+
+        return redirect()->route('tiposproductos.index');
     }
 
     //Función para mostrar más detalles del tipo de producto    
