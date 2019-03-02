@@ -17,3 +17,6 @@ Route::resource('/admin/tiposproductos','admin\TiposproductosController');
 	Route::put('/admin/tiposproductos/{id}','admin/TiposproductosController@update');
 	Route::delete('/admin/tiposproductos/{id}','admin/TiposproductosController@destroy');
 	*/
+
+//Ruta para el CRUD de Productos
+Route::resource('/admin/productos','admin\ProductosController');
